@@ -1,0 +1,26 @@
+<form [formGroup]="officerForm" class="p-3 mb-4">
+  <div class="row">
+    <div class="col-12">
+      <mat-radio-group formControlName="title" aria-label="Select an option">
+        <mat-radio-button class="light" value="title.MR">{{ title.MR }}</mat-radio-button><br />
+        <mat-radio-button class="light" value="title.MRS">{{ title.MRS }}</mat-radio-button><br />
+        <mat-radio-button class="light" value="title.MISS">{{ title.MISS }}</mat-radio-button><br />
+        <mat-radio-button class="light" value="title.MS">{{ title.MS }}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div class="row mb-4">  
+    <div class="col-sm">
+      <mat-label>First Name</mat-label>
+      <br />
+      <input formControlName="firstName" matInput placeholder="First name" />
+    </div>
+  
+    <div class="col-sm">
+      <mat-label>Last Name</mat-label>
+      <br />
+      <input formControlName="lastName" matInput placeholder="Last name" />
+    </div> 
+      
+  </div>
+</form>

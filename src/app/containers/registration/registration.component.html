@@ -1,0 +1,41 @@
+<h3 class="m-3">IPS Account Registration</h3>
+<div class="m-3">
+  <form [formGroup]="regoForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Account Type</mat-label>
+      <mat-select formControlName="accountType">
+        <mat-option *ngFor="let acc of accounts" [value]="acc.value">
+          {{acc.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="ml-3">
+      <mat-label>Number of Individuals</mat-label>
+      <mat-select formControlName="noOfIndividuals">
+        <mat-option *ngFor="let noi of [1, 2, 3, 4, 5, 6]" [value]="noi">
+          {{noi}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div formArrayName="accountHolders" *ngIf="isPersonal">
+      <div *ngFor="let item of noOfIndividuals; let i = index">        
+        <app-account-holder-info formControlName="{{i}}"></app-account-holder-info>        
+      </div>
+      <div>
+        <app-bank-account></app-bank-account>
+      </div>
+    </div>
+
+    <div formArrayName="accountHolders" *ngIf="isCorporate">  
+      <div *ngFor="let item of noOfIndividuals; let i = index">        
+        <app-account-holder-info formControlName="{{i}}"></app-account-holder-info>
+      </div>
+      <div>
+        <app-corporate-bank-account></app-corporate-bank-account>      
+      </div>    
+    </div>
+  </form>
+</div>

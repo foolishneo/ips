@@ -1,0 +1,32 @@
+<form [formGroup]="accInfoForm" class="mt-4">
+  <div class="row">
+    <div class="col-12">
+      <mat-radio-group formControlName="title" aria-label="Select an option">
+        <mat-radio-button value="title.MR">{{ title.MR }}</mat-radio-button>
+        <mat-radio-button class="ml-3" value="title.MRS">{{ title.MRS }}</mat-radio-button>
+        <mat-radio-button class="ml-3" value="title.MISS">{{ title.MISS }}</mat-radio-button>
+        <mat-radio-button class="ml-3" value="title.MS">{{ title.MS }}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div class="row mb-4">  
+    <div class="col-sm">
+      <mat-label>First Name</mat-label>
+      <br />
+      <input formControlName="firstName" matInput placeholder="First name" />
+    </div>
+  
+    <div class="col-sm">
+      <mat-label>Last Name</mat-label>
+      <br />
+      <input formControlName="lastName" matInput placeholder="Last name" />
+    </div> 
+  
+    <div class="col-sm">
+      <mat-label>Date Of Birth</mat-label>
+      <br />
+      <input matInput [matDatepicker]="picker" formControlName="dob" (click)="picker.open()" placeholder="dd/mm/yyyy" />     
+      <mat-datepicker #picker></mat-datepicker>
+    </div>
+  </div>
+</form>
